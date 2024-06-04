@@ -7,9 +7,9 @@ from django.http import HttpResponse
 def home(request):
     return render(request,"home.html")
 
-def product(request):
-    mobile=int(request.GET["mobile"])
-    keyboard=int(request.GET["keyboard"])
-    monitor=int(request.GET["monitor"])
-    price=mobile+keyboard+monitor
-    return render(request,"result.html",{'price':price})
+def register(request):
+    name=request.POST['name']
+    password=request.POST['password']
+    address=request.POST['address']
+    email=request.POST['email']
+    return render(request,"output.html",{'Name':name},{'Passowrd':password},{'Address':address},{'Email':email})
