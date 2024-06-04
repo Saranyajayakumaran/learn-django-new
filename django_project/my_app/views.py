@@ -12,4 +12,12 @@ def register(request):
     password=request.POST['password']
     address=request.POST['address']
     email=request.POST['email']
-    return render(request,"output.html",{'Name':name},{'Passowrd':password},{'Address':address},{'Email':email})
+
+    context={
+        'Name':name,
+        'Passowrd':password,
+        'Address':address,
+        'Email':email
+        }
+
+    return render(request,"output.html",context)
