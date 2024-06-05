@@ -20,7 +20,8 @@ from my_app import views
 
 urlpatterns = [
     path('admin/',admin.site.urls),
-    path('', views.home),
+    path('', views.home,name="home"),
+    path('addData',views.home,name="addData"),
     #path('register', views.register),
 
 ]

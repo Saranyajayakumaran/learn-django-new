@@ -6,7 +6,14 @@ from .models import Datas
 
 # Create your views here.
 def home(request):
-    if request.method== 'POST' :
+    mydata=Datas.objects.all()
+    if(mydata!=''):
+        return render(request,'home.html',{'datas':mydata})
+    else:
+        return render(request,'home.html')
+   
+def addData(request):
+     if request.method== 'POST' :
         name=request.POST.get('name')
         age=request.POST.get('age')
         address=request.POST.get('address')
@@ -27,7 +34,5 @@ def home(request):
         obj.save()
 
         mydata=Datas.objects.all()
-        return render(request,"home.html",{'datas':mydata})
-
-
-    return render(request,"home.html")
+        return redirect('home')
+     return render(request,"home.html")

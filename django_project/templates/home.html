@@ -11,7 +11,7 @@
 <body>
     <div class="container-fluid">
         <div class="col-md-offset-1 col-md-4">
-            <form action="" method="POST" autocomplete="off">
+            <form action="addData" method="POST" autocomplete="off">
                 {% csrf_token %}
             <h3 class="page-header text-primary text-center">Registration</h3>
             <div class="form-group">
@@ -41,6 +41,7 @@
         </form>
         </div>
         <div class="com-md-6">
+            {% if datas %}
             <h3 class="page-header text-primary text-center">View Details</h3>
             <table class="table table-bordered">
                 <thead>
@@ -71,6 +72,7 @@
 
 
             </table>
+            {% endif %}
         </div>
     </div>
 </body>
